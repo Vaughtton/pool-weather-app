@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿A qué hora bajo a la piscina?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <main class="main-content">
+            <div class="intro-section">
+                <h1>¿A qué hora bajo a la piscina?</h1>
+                <p class="subtitle">Encuentra la mejor hora para bajar a la piscina</p>
+            </div>
+
+            <div class="input-section">
+                <div class="location-input">
+                    <input type="text" id="locationInput" placeholder="Ingresa tu ciudad">
+                    <button id="getWeatherBtn">Buscar</button>
+                </div>
+                <button id="getCurrentLocationBtn" class="location-btn">📍 Usar mi ubicación</button>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Calculando...</p>
+            </div>
+
+            <div id="error" class="error hidden">
+                <p id="errorMessage"></p>
+            </div>
+
+            <div id="quickResult" class="quick-result hidden">
+                <div class="answer">
+                    <p class="recommendation-text">Hoy deberías bajar a tu piscina a las</p>
+                    <h2 id="bestTimeAnswer">14:30</h2>
+                    <p id="quickReason">☀️ 28°C • Sin lluvia • Poco viento</p>
+                    <div class="score-badge">
+                        <span id="quickScore">85</span>
+                        <small>/100</small>
+                    </div>
+                    <p id="scoreExplanation" class="score-explanation">Condiciones excelentes para nadar</p>
+                </div>
+                
+                <div class="score-chart">
+                    <h3>Puntuación por horas del día:</h3>
+                    <div id="chartContainer" class="chart-container">
+                        <svg id="poolChart" class="pool-chart" viewBox="0 0 600 160">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2d3436;stop-opacity:0.15"/>
+                                    <stop offset="100%" style="stop-color:#2d3436;stop-opacity:0.02"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                
+                <button id="searchAnotherBtn" class="search-another-btn">Buscar otra ciudad</button>
+            </div>
+
+            <div id="detailedResults" class="detailed-results hidden">
+                <div class="current-weather">
+                    <h3>Condiciones Actuales</h3>
+                    <div class="current-info">
+                        <span id="currentTemp"></span>
+                        <span id="currentCondition"></span>
+                    </div>
+                </div>
+
+                <div class="hourly-forecast">
+                    <h3>Pronóstico del día</h3>
+                    <div id="hourlyContainer" class="hourly-container"></div>
+                </div>
+
+                <button id="hideDetailsBtn" class="hide-details-btn">Ocultar detalles</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
